@@ -3,9 +3,10 @@ import {
   StyledMovieCard,
   StyledMovieImage,
   StyledMovieTitle,
+  MovieCardsList,
 } from "../styling/MovieCardsStyling";
-import { apiKey } from "../../.api-key";
 import Image from "next/image";
+import { apikey } from "../../pages/_app";
 
 const fetcher = async (url) => {
   const response = await fetch(url);
@@ -15,7 +16,7 @@ const fetcher = async (url) => {
 
 const MovieCards = () => {
   const { data: movies, error } = useSWR(
-    `https://api.themoviedb.org/3/list/1?api_key=${apiKey}`,
+    `https://api.themoviedb.org/3/list/1?api_key=${apikey}`,
     fetcher
   );
 
@@ -28,12 +29,12 @@ const MovieCards = () => {
   }
 
   return (
-    <StyledMovieCard>
+    <MovieCardsList>
       {movies.map((movie) => (
-        <div key={movie.id}>
+        <StyledMovieCard key={movie.id}>
           <StyledMovieImage key={movie.id}>
             <Image
-              src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
+              src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
               alt={movie.name}
               width={200}
               height={300}
@@ -42,9 +43,9 @@ const MovieCards = () => {
           <StyledMovieTitle>
             {movie.title} ({new Date(movie.release_date).getFullYear()})
           </StyledMovieTitle>
-        </div>
+        </StyledMovieCard>
       ))}
-    </StyledMovieCard>
+    </MovieCardsList>
   );
 };
 
