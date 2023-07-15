@@ -1,10 +1,4 @@
-import React from "react";
-import { HeadingStyling } from "../styling/heading";
+import styled from "styled-components";
 
-export default function Heading() {
-  return (
-    <div>
-      <h1 style={HeadingStyling}>Marvelous Cinematic Unisearch</h1>
-    </div>
-  );
-}
+const Heading = styled.div``;
+export default Heading;
