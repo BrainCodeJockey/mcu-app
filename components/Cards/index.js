@@ -47,6 +47,7 @@ const MovieCards = () => {
             </StyledMovieTitle>
           </StyledMovieCard>
         </Link>
+
       ))}
     </MovieCardsList>
   );
