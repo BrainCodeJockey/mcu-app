@@ -1,10 +1,10 @@
 import { createGlobalStyle } from "styled-components";
-
 export default createGlobalStyle`
   *,
   *::before,
   *::after {
     box-sizing: border-box;
+    text-decoration: none;
   }
   body {
     background-color: darkgoldenrod;
@@ -16,6 +16,7 @@ export default createGlobalStyle`
     width: auto;
     height: auto;
     margin: 0;
+    font-family: system-ui;
     font-family: Helvetica, Arial, sans-serif;
   }
 `;
